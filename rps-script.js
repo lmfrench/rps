@@ -16,7 +16,28 @@ function getComputerChoice(){
      return computerChoice;
 }
 
-// Function to determine who wins
+// Function for player to select Rock, Paper of Scissors
+
+function getPlayerChoice(round) {
+    let playerSelect = prompt("Round " + round + "/5 : Rock, Paper, Scissors?");
+     // Standardise case from playerChoice
+     let playerChoice = playerSelect[0].toUpperCase() + playerSelect.slice(1).toLowerCase();
+    //Check Player has made valid choice. Ask to select again if not valid
+    validSelection = false;
+    while (validSelection !== true){
+        if (playerChoice === "Rock" || playerChoice === "Paper" || playerChoice === "Scissors"){
+            validSelection = true;
+        }
+        else {
+            playerSelect = prompt ("Error: Incorrect Entry. Please select Rock, Paper or Scissors")
+            playerChoice = playerSelect[0].toUpperCase() + playerSelect.slice(1).toLowerCase();
+        }
+    }
+
+    return playerChoice;
+}
+
+// Function to play a round of Rock, Paper, Scissors
 
 function playRound(playerSelection, computerSelection){
 
@@ -52,17 +73,12 @@ function game(){
         // Computer choses
         let computerSelection = getComputerChoice();
 
-        // Ask player to choose
-        let playerChoice = prompt("Round " + round + "/5 : Rock, Paper, Scissors?");
-        
-        // Standardise case from playerChoice
-        let playerSelection = playerChoice[0].toUpperCase() + playerChoice.slice(1).toLowerCase();
+        let playerSelection = getPlayerChoice(round);
    
         // Play the round
         let roundOutcome = playRound(playerSelection, computerSelection);
 
         // Tell player the outcome of the round
-        
         if (roundOutcome === "Player Loses"){
             alert("You Lose! " + computerSelection + " beats " + playerSelection + ". Current Score: " + overallScore);
         }
