@@ -40,56 +40,34 @@ function playRound(playerSelection, computerSelection){
     return outcome;
 }
 
-// Function to play 5 rounds
-//function game(){
-
-// Variable to store score
-  //  let overallScore = 0;
-
-// Play rock paper scissors 5 times
- //   for (let round = 0; round < 5; round++){
-        // Computer choses
-   //     let computerSelection = getComputerChoice();
-
-     //   let playerSelection = getPlayerChoice(round);
-   
-        // Play the round
-       // let roundOutcome = playRound(playerSelection, computerSelection);
-
-        // Tell player the outcome of the round
-       // if (roundOutcome === "Player Loses"){
-        //    alert("You Lose! " + computerSelection + " beats " + playerSelection + ". Current Score: " + overallScore);
-       // }
-       // else if (roundOutcome === "Player Draws"){
-        //    alert("You Draw! The Player's choice (" + playerSelection + ") and Computer's choice (" + computerSelection + ") are the same! Current Score: " + overallScore);
-        //}
-        //else {
-         //   overallScore++;
-           // alert("You Win! " + playerSelection + " beats " + computerSelection + ". Current Score: " + overallScore);
-        //}
-    //}
-
-    //return overallScore;
-
-//}
-
 function printResult (roundResult) {
     const round = document.querySelector ('#roundResult');
     round.textContent = "Round Result: " + roundResult;
 }
 
+function printScore (cScore, pScore){
+    const player = document.querySelector ('#player');
+    player.textContent = "Player: " + pScore;
+
+    const computer = document.querySelector ('#computer');
+    computer.textContent = "Computer: " + cScore;
+}
+
 const buttons = document.querySelectorAll('button');
-// const container = document.querySelector('#container');
-        
+let cScore = 0;
+let pScore = 0;
+
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const roundResult = playRound(button.id, getComputerChoice());
+        if (roundResult === "Player Loses"){
+            cScore++;
+        }
+        else if (roundResult === "Player Wins"){
+        pScore++;
+        }
         printResult(roundResult);
-        
+        printScore(cScore, pScore);
     });
 });
-
-// let score = game();
-
-// tell player final score
-//alert("Final Score: You won " + score + " rounds.");
