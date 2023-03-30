@@ -73,18 +73,19 @@ function playRound(playerSelection, computerSelection){
 
 //}
 
-const buttons = document.querySelectorAll('button');
+function printResult (roundResult) {
+    const round = document.querySelector ('#roundResult');
+    round.textContent = "Round Result: " + roundResult;
+}
 
+const buttons = document.querySelectorAll('button');
+// const container = document.querySelector('#container');
+        
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        const container = document.querySelector('#container');
-        const round = document.createElement('round');
+        const roundResult = playRound(button.id, getComputerChoice());
+        printResult(roundResult);
         
-        //Select Player Choice based on what button was clicked, and print outcome of round
-        round.textContent = playRound(button.id, getComputerChoice());
-        
-        container.appendChild(round);
-    
     });
 });
 
