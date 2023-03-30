@@ -41,16 +41,29 @@ function playRound(playerSelection, computerSelection){
 }
 
 function printResult (roundResult) {
-    const round = document.querySelector ('#roundResult');
+    const round = document.querySelector('#roundResult');
     round.textContent = "Round Result: " + roundResult;
 }
 
 function printScore (cScore, pScore){
-    const player = document.querySelector ('#player');
+    const player = document.querySelector('#player');
     player.textContent = "Player: " + pScore;
 
-    const computer = document.querySelector ('#computer');
+    const computer = document.querySelector('#computer');
     computer.textContent = "Computer: " + cScore;
+}
+
+function checkWinner (cScore, pScore){
+    const container = document.querySelector('#container');
+    const div = document.createElement('div');
+    if (cScore >=5){
+        div.textContent = "The Computer Wins!";
+        container.appendChild(div);
+    }
+    else if (pScore >=5){
+        div.textContent = "You Win!";
+        container.appendChild(div);
+    }
 }
 
 const buttons = document.querySelectorAll('button');
@@ -61,13 +74,16 @@ let pScore = 0;
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const roundResult = playRound(button.id, getComputerChoice());
-        if (roundResult === "Player Loses"){
+        if(roundResult === "Player Loses"){
             cScore++;
         }
-        else if (roundResult === "Player Wins"){
+        else if(roundResult === "Player Wins"){
         pScore++;
         }
         printResult(roundResult);
         printScore(cScore, pScore);
+        checkWinner(cScore, pScore);    
     });
 });
+
+
