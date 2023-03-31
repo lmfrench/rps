@@ -54,36 +54,92 @@ function printScore (cScore, pScore){
 }
 
 function checkWinner (cScore, pScore){
-    const container = document.querySelector('#container');
+    const result = document.getElementById('results');
+    const container = document.getElementById('container');
+    const roundResult = document.getElementById('roundResult');
+    const score = document.getElementById('Score');
     const div = document.createElement('div');
-    if (cScore >=5){
-        div.textContent = "The Computer Wins!";
-        container.appendChild(div);
-    }
-    else if (pScore >=5){
-        div.textContent = "You Win!";
-        container.appendChild(div);
+
+    div.classList.add('overallResult');
+
+    //If there is a winner, remove play buttons and print who won
+    if (cScore >=5 || pScore >=5){
+        container.style.display = 'none';
+        roundResult.style.display = 'none';
+        
+        if (cScore >=5){
+            div.textContent = "The Computer Wins!";
+        }
+        else {
+            div.textContent = "You Win!";
+        }
+        result.insertBefore(div, score);
+        
+        //Add Play Again option
+        playAgain(div);
+    return true;
     }
 }
 
+function playAgain(div) {
+   
+    const score = document.getElementById('Score');
+    const button = document.createElement('button');
+
+    //Create Play Again Button
+    button.textContent = "Play Again";
+
+    // Add Event Listener so when player clicks the game returns
+    button.addEventListener('click', () => {
+        container.style.display = 'block';
+        roundResult.style.display = 'block';
+        
+        //Remove play again button
+        button.remove();
+
+        //Remove overall result
+        div.remove();
+
+        //Show score at 0 for new game
+        const player = document.querySelector('#player');
+        player.textContent = "Player: 0";
+
+        const computer = document.querySelector('#computer');
+        computer.textContent = "Computer: 0";
+
+    });
+            
+    score.appendChild(button);
+
+}
+
 const buttons = document.querySelectorAll('button');
+
 let cScore = 0;
 let pScore = 0;
 
-
 buttons.forEach((button) => {
+    
     button.addEventListener('click', () => {
         const roundResult = playRound(button.id, getComputerChoice());
         if(roundResult === "Player Loses"){
             cScore++;
         }
         else if(roundResult === "Player Wins"){
-        pScore++;
+            pScore++;
         }
         printResult(roundResult);
         printScore(cScore, pScore);
-        checkWinner(cScore, pScore);    
+        
+        let winner = checkWinner(cScore, pScore);                
+        if (winner){
+            pScore = 0;
+            cScore = 0;
+        }
     });
+   
 });
+
+
 
 
