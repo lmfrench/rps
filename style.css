@@ -23,6 +23,7 @@ button{
     font-weight: 900;
     padding: 75px 100px;  
     align-items: center;
+    text-align: center;
 }
 
 .headerText{
@@ -49,12 +50,9 @@ button{
     justify-content: center;
 }
 
-#roundResult{
-font-size: 30px;
-}
-
 #roundHeader{
     font-size: 20px;
+    color:rgb(52, 156, 122)
 }
 
 #Score{
@@ -68,3 +66,22 @@ font-size: 30px;
     padding: 25px;
 }
 
+.resultContainer{
+    margin: 20px;
+}
+
+.resultText{
+    font-size: 20px;
+    color:#78797a;
+    text-align:center
+}
+
+#resultPlayer, #resultComputer, #roundResult, #player, #computer{
+    font-size: 30px;
+    text-align:center;
+    height: 30px;
+}
+
+#resultPlayer, #resultComputer{
+    color:#123c77
+}

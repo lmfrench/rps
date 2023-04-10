@@ -47,10 +47,10 @@ function printResult (roundResult) {
 
 function printScore (cScore, pScore){
     const player = document.querySelector('#player');
-    player.textContent = "Player: " + pScore;
+    player.textContent = pScore;
 
     const computer = document.querySelector('#computer');
-    computer.textContent = "Computer: " + cScore;
+    computer.textContent = cScore;
 }
 
 function checkWinner (cScore, pScore){
@@ -102,10 +102,10 @@ function playAgain(div) {
 
         //Show score at 0 for new game
         const player = document.querySelector('#player');
-        player.textContent = "Player: 0";
+        player.textContent = "0";
 
         const computer = document.querySelector('#computer');
-        computer.textContent = "Computer: 0";
+        computer.textContent = "0";
 
     });
             
