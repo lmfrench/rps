@@ -56,8 +56,7 @@ function printScore (cScore, pScore){
 function checkWinner (cScore, pScore){
     const result = document.getElementById('results');
     const container = document.getElementById('container');
-    const roundResult = document.getElementById('roundResult');
-    const score = document.getElementById('Score');
+    const score = document.getElementById('result');
     const div = document.createElement('div');
 
     div.classList.add('overallResult');
@@ -65,7 +64,7 @@ function checkWinner (cScore, pScore){
     //If there is a winner, remove play buttons and print who won
     if (cScore >=5 || pScore >=5){
         container.style.display = 'none';
-        roundResult.style.display = 'none';
+        
         
         if (cScore >=5){
             div.textContent = "The Computer Wins!";
@@ -83,12 +82,14 @@ function checkWinner (cScore, pScore){
 
 function playAgain(div) {
    
-    const score = document.getElementById('Score');
+    const score = document.getElementById('results');
+    const container = document.getElementById('result');
     const button = document.createElement('button');
 
     //Create Play Again Button
+    button.classList.add('resultButton');
     button.textContent = "Play Again";
-
+   
     // Add Event Listener so when player clicks the game returns
     button.addEventListener('click', () => {
         container.style.display = 'block';
@@ -109,7 +110,7 @@ function playAgain(div) {
 
     });
             
-    score.appendChild(button);
+    score.insertBefore(button,container); 
 
 }
 

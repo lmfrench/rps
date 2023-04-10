@@ -55,7 +55,7 @@ button{
     color:rgb(52, 156, 122)
 }
 
-#Score{
+#Score,#result{
     display: flex;
     flex-direction: row;
     justify-content: space-around
@@ -84,4 +84,23 @@ button{
 
 #resultPlayer, #resultComputer{
     color:#123c77
+}
+
+.overallResult{
+    display: flex;
+    font-size: 50px;
+    justify-content:center;
+    padding: 20px;
+}
+
+.resultButton{
+    font-size: 20px;
+    width: 100px;
+    align-self: center;
+
+}
+
+#results{
+    display: flex;
+    flex-direction:column;
 }
