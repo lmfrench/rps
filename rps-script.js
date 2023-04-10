@@ -1,4 +1,4 @@
-// Create function for computer to select Rock, Paper or Scissors
+// Create function for computer to select Frog, Slug or Snake
 
 function getComputerChoice(){
     //Choose random number between 0-2
@@ -7,16 +7,16 @@ function getComputerChoice(){
 
     //Select Rock, Paper or Scissors
     if (choice === 0){
-        computerChoice = "Rock";
+        computerChoice = "Slug";
     } else if (choice === 1){
-        computerChoice = "Paper";
+        computerChoice = "Snake";
     }else{
-        computerChoice = "Scissors";
+        computerChoice = "Frog";
      }
      return computerChoice;
 }
 
-// Function to play a round of Rock, Paper, Scissors
+// Function to play a round of Frog, Slug or Snake
 
 function playRound(playerSelection, computerSelection){
 
@@ -24,9 +24,9 @@ function playRound(playerSelection, computerSelection){
     let outcome;
 
     //Logic for the game
-    if (playerSelection === "Rock" && computerSelection === "Paper"
-        || playerSelection === "Paper" && computerSelection === "Scissors"
-        || playerSelection === "Scissors" && computerSelection === "Rock" )
+    if (playerSelection === "Slug" && computerSelection === "Frog"
+        || playerSelection === "Snake" && computerSelection === "Slug"
+        || playerSelection === "Frog" && computerSelection === "Snake" )
         {
         outcome = "Player Loses";
     }
@@ -140,6 +140,10 @@ buttons.forEach((button) => {
    
 });
 
+
+//<a href="https://www.flaticon.com/free-icons/slug" title="slug icons">Slug icons created by Freepik - Flaticon</a>
+//<a href="https://www.flaticon.com/free-icons/frog" title="frog icons">Frog icons created by Freepik - Flaticon</a>
+//<a href="https://www.flaticon.com/free-icons/anaconda" title="anaconda icons">Anaconda icons created by Freepik - Flaticon</a>
 
 
 
