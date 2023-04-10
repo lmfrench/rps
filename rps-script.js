@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection){
         outcome = "Player Loses";
     }
     else if (playerSelection === computerSelection){
-        outcome = "Player Draws";
+        outcome = "Draw";
     }
     else {
         outcome = "Player Wins";
@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection){
 
 function printResult (roundResult) {
     const round = document.querySelector('#roundResult');
-    round.textContent = "Round Result: " + roundResult;
+    round.textContent = roundResult;
 }
 
 function printScore (cScore, pScore){
@@ -113,6 +113,19 @@ function playAgain(div) {
 
 }
 
+function printChoice(playerChoice,computerChoice){
+    
+    const player = document.querySelector('#resultPlayer');
+    console.log(playerChoice);
+    player.textContent = playerChoice;
+    
+    const computer = document.querySelector('#resultComputer');
+    computer.textContent = computerChoice;
+    
+}
+
+
+
 const buttons = document.querySelectorAll('button');
 
 let cScore = 0;
@@ -121,7 +134,10 @@ let pScore = 0;
 buttons.forEach((button) => {
     
     button.addEventListener('click', () => {
-        const roundResult = playRound(button.id, getComputerChoice());
+        const computerChoice = getComputerChoice();
+        const roundResult = playRound(button.id, computerChoice);
+              
+
         if(roundResult === "Player Loses"){
             cScore++;
         }
@@ -129,6 +145,7 @@ buttons.forEach((button) => {
             pScore++;
         }
         printResult(roundResult);
+        printChoice(button.id, computerChoice);
         printScore(cScore, pScore);
         
         let winner = checkWinner(cScore, pScore);                
@@ -139,11 +156,5 @@ buttons.forEach((button) => {
     });
    
 });
-
-
-//<a href="https://www.flaticon.com/free-icons/slug" title="slug icons">Slug icons created by Freepik - Flaticon</a>
-//<a href="https://www.flaticon.com/free-icons/frog" title="frog icons">Frog icons created by Freepik - Flaticon</a>
-//<a href="https://www.flaticon.com/free-icons/anaconda" title="anaconda icons">Anaconda icons created by Freepik - Flaticon</a>
-
 
 

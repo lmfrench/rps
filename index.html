@@ -4,24 +4,70 @@
         <meta charset="utf-8">
         <title>Mushi-ken</title>
         <script src="rps-script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
 </html>
 
 <body>
+    <div class='header'>
+        Mushi-ken: Frog, Slug, Snake
+        <div class="headerText">Frog beats Slug, Slug beats Snake, Snake beats Frog</div>
+    </div>
+
     <div id='container'>
-        <button id="Frog">Frog</button>
-        <button id="Slug">Slug</button>
-        <button id="Snake">Snake</button>
-        
-        
+        <div class='buttonContainer'>
+            <img class="buttonImage" src="frog.png" alt="Frog Icon" width="150px">
+            <button id="Frog">Frog</button>
+        </div>    
+        <div class='buttonContainer'>
+            <img class="buttonImage" src="slug.png" alt="Slug Icon" width="150px">
+            <button id="Slug">Slug</button>
+        </div>
+        <div class='buttonContainer'>
+            <img class="buttonImage" src="anaconda.png" alt="Snake Icon" width="150px">
+            <button id="Snake">Snake</button>
+        </div>
+    </div>
+               
     </div>
 
     <div id="results">
-        <p id="roundResult">Round Result:</p>
+        <p id="roundHeader"><strong>Round Result</strong></p>
+        <p id="roundResult"></p>
         <div id="Score">
-            <p>Total Score</p>
-            <p id="computer">Computer:</p>
-            <p id="player">Player:</p>
+            <div class="resultContainer">
+                <div id="resultPlayer"></div>
+                <div class="resultText">Player</div>
+            </div>
+
+            <div class="resultContainer">
+                <div id="resultComputer"></div>
+                <div class="resultText">Computer</div>
+                </div>
+           
         </div>
     </div>
+    
+    <div id="overallScore">
+        <p id="roundResult">Score</p>
+        <div id="Score">
+            <div class="scoreContainer">
+                <div id="player">Player</div>
+            </div>
+
+            <div class="scoreContainer">
+                <div id="computer">Computer</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p><a href="https://www.flaticon.com/free-icons/slug" title="slug icons">Slug</a>, 
+        <a href="https://www.flaticon.com/free-icons/frog" title="frog icons">Frog</a> and
+        <a href="https://www.flaticon.com/free-icons/anaconda" title="anaconda icons">Anaconda</a>  icons created by Freepik - Flaticon</p> 
+    </div>
+    
+
+
 </body>
