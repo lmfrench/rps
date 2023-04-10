@@ -65,7 +65,6 @@ function checkWinner (cScore, pScore){
     if (cScore >=5 || pScore >=5){
         container.style.display = 'none';
         
-        
         if (cScore >=5){
             div.textContent = "The Computer Wins!";
         }
@@ -76,25 +75,25 @@ function checkWinner (cScore, pScore){
         
         //Add Play Again option
         playAgain(div);
-    return true;
+        return true;
     }
 }
 
 function playAgain(div) {
    
     const score = document.getElementById('results');
-    const container = document.getElementById('result');
+    const container = document.getElementById('container');
     const button = document.createElement('button');
-
+    const result = document.getElementById('result');
     //Create Play Again Button
     button.classList.add('resultButton');
     button.textContent = "Play Again";
    
     // Add Event Listener so when player clicks the game returns
     button.addEventListener('click', () => {
-        container.style.display = 'block';
-        roundResult.style.display = 'block';
-        
+        //Show images and buttons again
+        container.style.display = 'flex';
+                
         //Remove play again button
         button.remove();
 
@@ -110,7 +109,7 @@ function playAgain(div) {
 
     });
             
-    score.insertBefore(button,container); 
+    score.insertBefore(button,result); 
 
 }
 
